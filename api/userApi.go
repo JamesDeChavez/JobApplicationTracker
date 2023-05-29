@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/JamesDeChavez/RPS-Duel/models"
-	"github.com/JamesDeChavez/RPS-Duel/util"
+	"github.com/JamesDeChavez/JobApplicationTracker/models"
+	"github.com/JamesDeChavez/JobApplicationTracker/util"
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
 	"gorm.io/gorm"

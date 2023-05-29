@@ -1,19 +1,17 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
-	"github.com/JamesDeChavez/RPS-Duel/api"
-	"github.com/JamesDeChavez/RPS-Duel/models"
-	"github.com/JamesDeChavez/RPS-Duel/storage"
+	"github.com/JamesDeChavez/JobApplicationTracker/api"
+	"github.com/JamesDeChavez/JobApplicationTracker/models"
+	"github.com/JamesDeChavez/JobApplicationTracker/storage"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 )
 
 func main() {
-	fmt.Println("Hello World")
 	if err := godotenv.Load(); err != nil {
 		log.Fatal(err)
 	}
