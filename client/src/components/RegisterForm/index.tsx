@@ -36,7 +36,7 @@ const RegisterForm: React.FC<Props> = ({setForm}) => {
             return
         }
         try {
-            const res = await axios.post('http://localhost:8080/api/create_user', {
+            const res = await axios.post('https://jobapplicationtracker-7m4l.onrender.com/api/create_user', {
                 username,
                 password
             })

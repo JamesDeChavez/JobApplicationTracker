@@ -24,7 +24,7 @@ const ApplicationTable = () => {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/api/get_apps/${userId}`)
+                const res = await axios.get(`https://jobapplicationtracker-7m4l.onrender.com/api/get_apps/${userId}`)
                 const data = res.data
                 if (data) {
                     console.log(data.applications)
@@ -48,7 +48,7 @@ const ApplicationTable = () => {
         newApplications[i].status = status
         setApplications(newApplications)
         try {
-            const res = await axios.put(`http://localhost:8080/api/update_app/`, {
+            const res = await axios.put(`https://jobapplicationtracker-7m4l.onrender.com/api/update_app/`, {
                 id: applications[i].id,
                 status: status
             })
@@ -72,7 +72,7 @@ const ApplicationTable = () => {
         newApplications.splice(i, 1)
         setApplications(newApplications)
         try {
-            const res = await axios.delete(`http://localhost:8080/api/delete_app/${appId}`)
+            const res = await axios.delete(`https://jobapplicationtracker-7m4l.onrender.com/api/delete_app/${appId}`)
             const data = res.data
             if (data) {
                 console.log(data)
