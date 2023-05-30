@@ -103,7 +103,9 @@ const ApplicationTable = () => {
                     <Row>
                         <Col className="text-center border border-dark bg-light">{application.company}</Col>
                         <Col className="text-center border border-dark bg-light">{application.position}</Col>
-                        <Col className="text-center border border-dark bg-light">{application.url}</Col>
+                        <Col className="text-center border border-dark bg-light">
+                            <a href={application.url} target="_blank" rel="noreferrer">Link</a>
+                        </Col>
                         <Col className="text-center border border-dark bg-light">
                             <Dropdown>
                                 <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: 'transparent', border: 'none', color:  'black'}} >
