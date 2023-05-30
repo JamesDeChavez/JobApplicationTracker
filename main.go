@@ -32,13 +32,21 @@ func main() {
 	if err != nil {
 		log.Fatal("Error migrating users")
 	}
+	err = models.MigrateApplications(db)
+	if err != nil {
+		log.Fatal("Error migrating applications")
+	}
 
-	repo := api.Repository{
+	userRepo := api.UserRepository{
+		DB: db,
+	}
+	appRepo := api.AppRepository{
 		DB: db,
 	}
 
 	app := fiber.New()
-	repo.SetupRoutes(app)
+	userRepo.SetupUserRoutes(app)
+	appRepo.SetupAppRoutes(app)
 	app.Listen(":8080")
 
 }

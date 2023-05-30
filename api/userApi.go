@@ -23,7 +23,7 @@ type UserRes struct {
 	Username string `json:"username"`
 }
 
-type Repository struct {
+type UserRepository struct {
 	DB *gorm.DB
 }
 
@@ -33,7 +33,7 @@ type JWTClaims struct {
 	jwt.RegisteredClaims
 }
 
-func (repo *Repository) CreateUser(context *fiber.Ctx) error {
+func (repo *UserRepository) CreateUser(context *fiber.Ctx) error {
 	user := User{}
 	userRes := UserRes{}
 
@@ -94,7 +94,7 @@ func (repo *Repository) CreateUser(context *fiber.Ctx) error {
 	return nil
 }
 
-func (repo *Repository) GetUserById(context *fiber.Ctx) error {
+func (repo *UserRepository) GetUserById(context *fiber.Ctx) error {
 	user := &models.User{}
 	id := context.Params("id")
 	if id == "" {
@@ -124,7 +124,7 @@ func (repo *Repository) GetUserById(context *fiber.Ctx) error {
 	return nil
 }
 
-func (repo *Repository) GetUserLogin(context *fiber.Ctx) error {
+func (repo *UserRepository) GetUserLogin(context *fiber.Ctx) error {
 	userReq := User{}
 	userModel := &models.User{}
 	userRes := &UserRes{}
@@ -179,7 +179,7 @@ func (repo *Repository) GetUserLogin(context *fiber.Ctx) error {
 	return nil
 }
 
-func (repo *Repository) GetUsers(context *fiber.Ctx) error {
+func (repo *UserRepository) GetUsers(context *fiber.Ctx) error {
 	users := &[]models.User{}
 
 	if err := repo.DB.Find(&users).Error; err != nil {
@@ -198,7 +198,7 @@ func (repo *Repository) GetUsers(context *fiber.Ctx) error {
 	return nil
 }
 
-func (repo *Repository) DeleteUser(context *fiber.Ctx) error {
+func (repo *UserRepository) DeleteUser(context *fiber.Ctx) error {
 	user := models.User{}
 	id := context.Params("id")
 	if id == "" {
@@ -218,7 +218,7 @@ func (repo *Repository) DeleteUser(context *fiber.Ctx) error {
 	return nil
 }
 
-func (repo *Repository) SetupRoutes(app *fiber.App) {
+func (repo *UserRepository) SetupUserRoutes(app *fiber.App) {
 	api := app.Group("/api")
 	api.Get("/users", repo.GetUsers)
 	api.Get("/get_user/id/:id", repo.GetUserById)
