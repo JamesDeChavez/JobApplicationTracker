@@ -35,6 +35,7 @@ func (repo *AppRepository) CreateApplication(context *fiber.Ctx) error {
 		)
 		return err
 	}
+
 	err = repo.DB.Create(&application).First(&application).Error
 	if err != nil {
 		context.Status(http.StatusBadRequest).JSON(

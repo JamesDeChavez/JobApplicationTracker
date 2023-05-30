@@ -8,6 +8,7 @@ import (
 	"github.com/JamesDeChavez/JobApplicationTracker/models"
 	"github.com/JamesDeChavez/JobApplicationTracker/storage"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
 )
 
@@ -45,6 +46,7 @@ func main() {
 	}
 
 	app := fiber.New()
+	app.Use(cors.New())
 	userRepo.SetupUserRoutes(app)
 	appRepo.SetupAppRoutes(app)
 	app.Listen(":8080")

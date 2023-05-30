@@ -222,7 +222,7 @@ func (repo *UserRepository) SetupUserRoutes(app *fiber.App) {
 	api := app.Group("/api")
 	api.Get("/users", repo.GetUsers)
 	api.Get("/get_user/id/:id", repo.GetUserById)
-	api.Get("/get_user/login", repo.GetUserLogin)
+	api.Post("/get_user/login", repo.GetUserLogin)
 	api.Post("/create_user", repo.CreateUser)
 	api.Delete("/delete_user/:id", repo.DeleteUser)
 }

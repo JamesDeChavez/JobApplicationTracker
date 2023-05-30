@@ -1,0 +1,16 @@
+.RegisterForm {
+    border: solid 1px #0fa3b150;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #f9f7f3;
+}
+
+.RegisterForm_loginButton {
+    border: none;
+    background: none;
+    color:blue;
+}
+
+.RegisterForm_loginButton:hover {
+    text-decoration: underline;
+}
